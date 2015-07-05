@@ -1,0 +1,46 @@
+Go与测试，一个微型TDD例子
+10分钟内用Go快速上手测试驱动编程
+15:30 5 Jul 2015
+Tags: Go, TDD, gocasts
+
+Ersi Ni
+ersi.ni@nilbot.net
+https://github.com/nilbot
+@niersi
+
+* 写Go代码，写测试代码的乐趣
+
+- 写测试代码也很简单
+- testing库
+- 快速的编译允许你写一行，编译一次
+
+** 为何不用工具来实现自动的编译呢？
+
+* 那我们就来做一下吧
+
+假设我们要用TDD写一个Hello World程序
+
+- 主程序文件为hello.go
+- 测试程序为hello_test.go
+- 一个监视文件变化然后自动编译的程序
+
+** hello.go
+
+其实就一行逻辑
+
+.code hello.go /^func main/,/^}/
+
+* 我们的目标是通过测试
+
+        go test
+        PASS
+
+并成功输出Hello World
+
+.play hello.go /^func show/,/^}/
+
+
+
+
+* 现场演示！
+
