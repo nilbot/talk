@@ -1,6 +1,6 @@
 application: nilbot-talk
-module: present
-version: 1
+module: default
+version: none
 runtime: go
 api_version: go1
 
