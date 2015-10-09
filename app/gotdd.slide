@@ -31,16 +31,18 @@ https://github.com/nilbot
 
 其实就一行逻辑
 
-.code hello.go /^func main/,/^}/
+.code /src/hello.go /^func main/,/^}/
 
 * 我们的目标是通过测试
 
         go test
         PASS
 
+.code -numbers /src/hello_test.go /^func Test/,/^}/
+
 并成功输出Hello World
 
-.play hello.go /^func show/,/^}/
+.play /src/hello.go /^func show/,/^}/
 
 
 
