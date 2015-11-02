@@ -1,0 +1,12 @@
+How to push to remote
+Given a pre-existing local repo without remote
+
+* Add remote
+** If you use https
+    git remote add origin https://github.com/UCD-Mel/the_repo_name
+* Add remote
+** If you use rsa key
+    git remote add origin git@github.com:ucd-mel/the_repo_name.git
+
+* Push remote
+    git push origin master
