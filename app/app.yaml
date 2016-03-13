@@ -13,5 +13,6 @@ handlers:
   application_readable: true
 - url: /.*
   script: _go_app
+  secure: always
 
 nobuild_files: ^src/
