@@ -1,0 +1,129 @@
+Git Comprehensive
+Make workflows work for you, not the other way around
+8 Jun 2016
+Tags: Git
+
+Ersi Ni
+@nilbot
+n@nilbot.net
+https://github.com/nilbot
+
+* Overview
+
+- Basic what, when, how
+- Popular Workflows and why they make sense
+- Scenario
+
+* Quick Intro
+
+- Maps to real world problem at collaborating with people
+- Conceptually designed after DAG, traceability made easy
+- Core is branching and merging / pulling
+- Internet is great source, but come ask me if you can't find direct answer on the webs
+
+* What is real world problems when collaborating with teammates
+
+- Synchronisation
+- Communication
+- Traceability
+
+* Synchronisation
+
+- Work is mostly done asynchronously
+
+People work better when distraction-free; Effective collaboration happens when (partial) result are being evaluated, but rarely during one is typing 80 WPM on the screen.
+
+- it's everyone's job to maintain updated understanding of the project
+
+e.g. If you go on vacation for 1 month, when you come back, you are the one who should do reading and clean your inbox, not your teammates. In terms of coding, if your feature is finished after the world has advanced to 22nd century, pull (*rebase*) the world to your time-line and become more civilized before submitting your pull request.
+
+* Example
+
+- Version your work
+
+  # hack on MyClass.java
+  git add MyClass.java
+  git commit -m "I have done xyz to MyClass, as discussed in issue #1.234"
+
+- Update world (my feature is simple and didn't affect existing design contract)
+
+  git checkout master
+  git pull origin master
+  git checkout my_awesome_branch
+  git rebase -i master # rebase interactively
+
+- Update world (my feature is non-trivial and my teammates work with me on frequent basis)
+
+  git checkout master
+  git pull origin master
+  git checkout our_team_branch
+  git merge master
+
+* Synchronisation (continued)
+- hierachy of trust
+
+When conflict happens, refer to people who knows the stuff to resolve it. When feature being merged is big and complex, let the expert merge it (feature/expert branch) and trust the expert's judgement (merging to master)
+
+* Quick work-flow explanation
+
+- A is network expert, B is network team-lead, C is project lead
+- A commits 30 changes and submitted pull request to C
+- C scratches her head and assigned B as reviewer
+- B :"Okay" 
+	git fetch origin a_feature
+	git checkout c_timeline
+	git branch b_review
+	git checkout b_review
+	git merge a_feature
+	# reviewing...
+	git commit -a -m "resolve this please, @A"
+	# 3 hours later
+	git pull origin a_feature
+	# reviewing... Look good to me
+	git checkout c_timeline
+	git merge b_review -m "I have reviewed, LGTM" # stands look good to me
+	# B cc'd C
+
+- A, B, C all :)
+
+* Communication
+
+- Should be barrier-free, should be as easy as simply speak out
+
+common operations must be able to finish fast, e.g. vs SVN, simply branching a large project could take half hour
+
+  git commit | merge # constant time look up
+  git bisect | blame # log(n) time, n being the entire history
+
+- Must show mutual respect
+
+Dump the code like leaving a voice mail is not communication. Code review must be essential part of your work-flow. (not part of git standard toolbox, but available widely in open source community, e.g. github pull request is an informal but adequate reviewing tool)
+
+* Traceablity
+
+- Commits are SHA hashed
+This makes your timeline unique and immutable, you _will_ get caught trying to alter history (but you will be able to rewrite history, *more advance topic)
+
+  # A ninja'ed a fix to hide his mistake in commit 34ae5788, rewriting original, results in 667ffda
+  # B pulled A fast-forward 
+  # ERROR! B complaints, emailing around asking who is responsible. Now everyone is aware.
+  # Of course A has to come forward and apologize, plus has to fix everyone's timeline, manually!
+
+- Traditionally plain text only, extendable with large file / binary content, but will require 3rd party service like _GitHub_ or _GitLab_
+
+	git lfs track preprocessed.dataset # lfs stands for large file storage
+	git add *.dataset
+	git push origin resource_branch
+
+
+* Where to start?
+- Online Tutorial
+.link https://www.atlassian.com/git/tutorials/ Atlassian Git Tutorial
+.link https://try.github.io/levels/1/challenges/1 [Try Git] Better hands-on experience
+- Online case study (mostly blogs)
+.link https://lucamezzalira.com/2014/03/10/git-flow-vs-github-flow/ 
+- Manual
+.link https://git-scm.com/doc
+- GitHub
+.link https://help.github.com/articles/set-up-git/
+
