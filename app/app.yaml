@@ -7,7 +7,7 @@ api_version: go1
 handlers:
 - url: /favicon.ico
   static_files: present/static/favicon.ico
-  upload: present/sattic/favicon.ico
+  upload: present/static/favicon.ico
 - url: /static
   static_dir: present/static
   application_readable: true
