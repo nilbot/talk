@@ -1,0 +1,66 @@
+Text Summarisation on time-series multi-document
+
+8 Mar 2017
+Tags: fyp
+
+Ersi Ni
+@niersi
+n@nilbot.net
+https://demo.nilbot.net/
+
+* Overview
+
+- A Story
+- Exploratory on the time series
+- NLP
+- Result (potential mock up)
+
+* Quick Intro with a Story
+
+- Vacation -> looking to book a hotel
+- Hundreds of hotels, Thousands of reviews
+- Rating score statistics (somewhat) available
+- But it'll be nice to know what the reviews are about
+
+(2 minutes)
+
+* What insight could be unearthed?
+
+- Trending topic on hotels (reason why bad or good)
+- Background information about the location, season etc.
+- ...
+
+* Exploration in time
+
+- figure that illustrate the magnitude of the dataset
+- show case timeseries exploration base on rating score/count metrics - explain
+- raise hypothesis
+
+* Exploratioin in time (part 2)
+
+- showcase analysis targeting the hypothesis
+- stream-line to the next logical step with rationale
+
+- Goal for NLP at this stage
+
+* challenges and methods in NLP
+- explain summarisation using extraction, rationale
+- information retrieval intro (citation, explaination, metrics showcase)
+- technical example of tf*idf and it's effect through word cloud
+
+(2 minutes)
+
+* graph based summarisation
+- examples, citation
+
+* Result
+
+- sentence selection result demo
+- show envisioned result combining 2 stage with mock up rendering
+
+* recap
+
+- stages
+- implementation effort
+- deliverables
+- criticise fields for future work

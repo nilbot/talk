@@ -1,0 +1,14 @@
+Largest Plateau in 2D Histogram
+Part 1
+8 Oct 2015
+Tags: Go
+
+Ersi Ni
+ersi.ni@nilbot.net
+https://github.com/nilbot
+
+* Problem statement
+  Given a 2D array, representing heights of each cells of a terrain (say), 
+  calculate the largest plateau with highest/lowest height.
+
+
